@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>تأیید شماره | منفرد ترید</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --pink: #FF3D8B;
+            --pink-dark: #e92d78;
+            --green: #16A34A;
+            --bg: #F9FAFB;
+            --border: #E5E7EB;
+            --text: #000;
+            --muted: #737373;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+
+        header {
+            height: 76px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 800;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 13px;
+
+            display: grid;
+            place-items: center;
+
+            color: white;
+            font-size: 18px;
+            font-weight: 800;
+
+            background: linear-gradient(
+                135deg,
+                #FF3D8B,
+                #FF8A3D
+            );
+        }
+
+        .back {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 13px;
+            transition: .2s;
+        }
+
+        .back:hover {
+            color: var(--pink);
+        }
+
+        /* Main */
+
+        main {
+            flex: 1;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 40px 20px 70px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        /* Card */
+
+        .card {
+            background: var(--white);
+
+            border: 1px solid var(--border);
+            border-radius: 28px;
+
+            padding: 34px;
+        }
+
+        /* Icon */
+
+        .icon {
+            width: 58px;
+            height: 58px;
+
+            border-radius: 18px;
+
+            background: #FFF0F6;
+            color: var(--pink);
+
+            display: grid;
+            place-items: center;
+
+            font-size: 25px;
+
+            margin-bottom: 24px;
+        }
+
+        /* Title */
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+
+            margin-bottom: 8px;
+        }
+
+        .description {
+            font-size: 13px;
+            line-height: 2;
+
+            color: var(--muted);
+
+            margin-bottom: 28px;
+        }
+
+        .phone {
+            color: var(--text);
+            font-weight: 700;
+
+            direction: ltr;
+            display: inline-block;
+        }
+
+        /* OTP */
+
+        .otp {
+            display: flex;
+
+            direction: ltr;
+
+            gap: 9px;
+
+            margin-bottom: 22px;
+        }
+
+        .otp-input {
+            width: 100%;
+            height: 60px;
+
+            border: 1px solid var(--border);
+            border-radius: 16px;
+
+            background: var(--bg);
+
+            text-align: center;
+
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 22px;
+            font-weight: 700;
+
+            outline: none;
+
+            transition: .2s;
+        }
+
+        .otp-input:focus {
+            border-color: var(--pink);
+
+            background: white;
+
+            box-shadow:
+                0 0 0 4px rgba(255, 61, 139, .08);
+        }
+
+        /* Timer */
+
+        .timer {
+            text-align: center;
+
+            font-size: 12px;
+
+            color: var(--muted);
+
+            margin-bottom: 20px;
+        }
+
+        .timer strong {
+            color: var(--pink);
+        }
+
+        /* Button */
+
+        .button {
+            width: 100%;
+            height: 58px;
+
+            border: none;
+            border-radius: 16px;
+
+            background: var(--pink);
+            color: white;
+
+            font-family: inherit;
+
+            font-weight: 700;
+            font-size: 14px;
+
+            cursor: pointer;
+
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: var(--pink-dark);
+
+            transform: translateY(-1px);
+        }
+
+        .button:active {
+            transform: translateY(0);
+        }
+
+        /* Secondary */
+
+        .secondary {
+            display: block;
+
+            text-align: center;
+
+            color: var(--muted);
+
+            text-decoration: none;
+
+            font-size: 12px;
+
+            margin-top: 18px;
+
+            transition: .2s;
+        }
+
+        .secondary:hover {
+            color: var(--pink);
+        }
+
+        /* Footer */
+
+        footer {
+            text-align: center;
+
+            color: #999;
+
+            font-size: 11px;
+
+            padding: 20px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 500px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            .brand {
+                font-size: 14px;
+            }
+
+            .logo {
+                width: 36px;
+                height: 36px;
+
+                border-radius: 11px;
+            }
+
+            .back {
+                font-size: 11px;
+            }
+
+            main {
+                padding: 25px 16px 50px;
+
+                align-items: flex-start;
+            }
+
+            .card {
+                padding: 27px 20px;
+
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .description {
+                font-size: 12px;
+            }
+
+            .otp {
+                gap: 7px;
+            }
+
+            .otp-input {
+                height: 55px;
+
+                border-radius: 14px;
+
+                font-size: 20px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+<div class="page">
+
+
+    <!-- Header -->
+
+    <header>
+
+        <a href="#" class="brand">
+
+            <span class="logo">
+                م
+            </span>
+
+            <span>
+                منفرد ترید
+            </span>
+
+        </a>
+
+
+        <a href="#" class="back">
+            بازگشت ←
+        </a>
+
+    </header>
+
+
+
+    <!-- Main -->
+
+    <main>
+
+        <div class="wrapper">
+
+            <div class="card">
+
+
+                <!-- Icon -->
+
+                <div class="icon">
+                    ✦
+                </div>
+
+
+                <!-- Title -->
+
+                <h1>
+                    کد تأیید
+                </h1>
+
+
+                <p class="description">
+
+                    کد ۴ رقمی ارسال‌شده به شماره
+
+                    <span class="phone">
+                        09123456789
+                    </span>
+
+                    را وارد کنید.
+
+                </p>
+
+
+
+                <!-- Form -->
+
+                <form method="POST" action="">
+
+                    {% csrf_token %}
+
+
+                    <!-- OTP Inputs -->
+
+                    <div class="otp">
+
+                        <input
+                            type="text"
+                            class="otp-input"
+                            maxlength="1"
+                            inputmode="numeric"
+                            autocomplete="one-time-code"
+                            aria-label="رقم اول"
+                        >
+
+                        <input
+                            type="text"
+                            class="otp-input"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="رقم دوم"
+                        >
+
+                        <input
+                            type="text"
+                            class="otp-input"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="رقم سوم"
+                        >
+
+                        <input
+                            type="text"
+                            class="otp-input"
+                            maxlength="1"
+                            inputmode="numeric"
+                            aria-label="رقم چهارم"
+                        >
+
+                    </div>
+
+
+                    <!-- مقدار واقعی ارسال‌شده به Django -->
+
+                    <input
+                        type="hidden"
+                        name="code"
+                        id="code"
+                    >
+
+
+                    <!-- Timer -->
+
+                    <div class="timer">
+
+                        ارسال مجدد کد تا
+
+                        <strong>
+                            ۵۹ ثانیه
+                        </strong>
+
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        class="button"
+                        type="submit"
+                    >
+                        تأیید و ادامه
+                    </button>
+
+                </form>
+
+
+
+                <!-- Change Phone -->
+
+                <a href="#" class="secondary">
+                    شماره موبایل را اشتباه وارد کرده‌اید؟
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <!-- Footer -->
+
+    <footer>
+        © ۱۴۰۵ منفرد ترید
+    </footer>
+
+
+</div>
+
+
+
+<script>
+
+    /*
+    |--------------------------------------------------------------------------
+    | OTP
+    |--------------------------------------------------------------------------
+    |
+    | چهار input داریم اما Django فقط یک مقدار به نام code دریافت می‌کند.
+    |
+    | مثال:
+    |
+    | input 1 = 5
+    | input 2 = 8
+    | input 3 = 3
+    | input 4 = 2
+    |
+    | نتیجه:
+    |
+    | code = "5832"
+    |
+    |--------------------------------------------------------------------------
+    */
+
+
+    const inputs = document.querySelectorAll(".otp-input");
+
+    const codeInput = document.getElementById("code");
+
+    const form = document.querySelector("form");
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | تایپ کردن عدد
+    |--------------------------------------------------------------------------
+    */
+
+    inputs.forEach((input, index) => {
+
+        input.addEventListener("input", function () {
+
+            /*
+            فقط عدد قبول کن
+            */
+
+            this.value = this.value.replace(/\D/g, "");
+
+
+            /*
+            اگر عدد وارد شد
+            برو input بعدی
+            */
+
+            if (this.value && index < inputs.length - 1) {
+
+                inputs[index + 1].focus();
+
+            }
+
+
+            updateCode();
+
+        });
+
+
+
+        /*
+        |--------------------------------------------------------------------------
+        | Backspace
+        |--------------------------------------------------------------------------
+        */
+
+        input.addEventListener("keydown", function (event) {
+
+            if (
+                event.key === "Backspace" &&
+                !this.value &&
+                index > 0
+            ) {
+
+                inputs[index - 1].focus();
+
+            }
+
+        });
+
+    });
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Paste
+    |--------------------------------------------------------------------------
+    |
+    | اگر کاربر مثلاً 5832 را Paste کند:
+    |
+    | 5 | 8 | 3 | 2
+    |
+    |--------------------------------------------------------------------------
+    */
+
+    inputs[0].addEventListener("paste", function (event) {
+
+        event.preventDefault();
+
+
+        const pastedText =
+            event.clipboardData
+                .getData("text")
+                .replace(/\D/g, "")
+                .slice(0, 4);
+
+
+        pastedText.split("").forEach((number, index) => {
+
+            if (inputs[index]) {
+
+                inputs[index].value = number;
+
+            }
+
+        });
+
+
+        updateCode();
+
+
+        /*
+        آخرین خانه را Focus کن
+        */
+
+        const lastIndex = pastedText.length - 1;
+
+        if (inputs[lastIndex]) {
+
+            inputs[lastIndex].focus();
+
+        }
+
+    });
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | ساخت code
+    |--------------------------------------------------------------------------
+    */
+
+    function updateCode() {
+
+        let code = "";
+
+
+        inputs.forEach((input) => {
+
+            code += input.value;
+
+        });
+
+
+        /*
+        مثال:
+        5 + 8 + 3 + 2
+
+        نتیجه:
+        5832
+        */
+
+        codeInput.value = code;
+
+    }
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | قبل از ارسال فرم
+    |--------------------------------------------------------------------------
+    */
+
+    form.addEventListener("submit", function (event) {
+
+        updateCode();
+
+
+        /*
+        اگر 4 رقم کامل نشده باشد،
+        فرم ارسال نشود.
+        */
+
+        if (codeInput.value.length !== 4) {
+
+            event.preventDefault();
+
+            alert("لطفاً کد ۴ رقمی را کامل وارد کنید.");
+
+            return;
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+</html>

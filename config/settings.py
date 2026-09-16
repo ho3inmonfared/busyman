@@ -32,6 +32,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     
+    # local-apps 
+    'accounts',
+    
 ]
 
 MIDDLEWARE = [
@@ -115,4 +118,5 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
-
+# CustomUser settings 
+AUTH_USER_MODEL = "accounts.CustomUser"

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود | منفرد ترید</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #FF3D8B;
+            --pink-dark: #e92d78;
+            --green: #16A34A;
+            --bg: #F9FAFB;
+            --surface: #F3F4F6;
+            --text: #000000;
+            --muted: #737373;
+            --border: #E5E7EB;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 76px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 800;
+            font-size: 18px;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 800;
+            background: linear-gradient(135deg, #FF3D8B, #FF8A3D);
+        }
+
+        .back {
+            text-decoration: none;
+            color: var(--muted);
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .back:hover {
+            color: var(--pink);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px 70px;
+        }
+
+        .auth-wrapper {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 34px;
+        }
+
+        .icon {
+            width: 58px;
+            height: 58px;
+            border-radius: 18px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 25px;
+            color: white;
+            font-size: 25px;
+            background: linear-gradient(135deg, #FF3D8B, #FF6B9F);
+        }
+
+        h1 {
+            font-size: 27px;
+            line-height: 1.5;
+            margin-bottom: 9px;
+            font-weight: 800;
+        }
+
+        .description {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 2;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .input {
+            width: 100%;
+            height: 58px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            outline: none;
+            padding: 0 18px;
+            font-family: inherit;
+            font-size: 15px;
+            background: var(--bg);
+            direction: ltr;
+            text-align: right;
+            transition: .2s;
+        }
+
+        .input:focus {
+            border-color: var(--pink);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 61, 139, .08);
+        }
+
+        .hint {
+            color: #999;
+            font-size: 11px;
+            margin-top: 9px;
+        }
+
+        .button {
+            width: 100%;
+            height: 58px;
+            border: 0;
+            border-radius: 16px;
+            margin-top: 24px;
+            background: var(--pink);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-1px);
+        }
+
+        .secure {
+            margin-top: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: #8a8a8a;
+            font-size: 11px;
+        }
+
+        .secure-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            color: #999;
+            font-size: 11px;
+        }
+
+        @media (max-width: 500px) {
+            header {
+                height: 68px;
+                padding: 0 20px;
+            }
+
+            .back {
+                font-size: 11px;
+            }
+
+            .brand {
+                font-size: 15px;
+            }
+
+            .logo {
+                width: 36px;
+                height: 36px;
+                border-radius: 11px;
+            }
+
+            main {
+                padding: 25px 16px 50px;
+                align-items: flex-start;
+            }
+
+            .card {
+                padding: 27px 21px;
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+
+            .description {
+                font-size: 13px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+        <a href="#" class="brand">
+            <span class="logo">م</span>
+            <span>منفرد ترید</span>
+        </a>
+
+        <a href="#" class="back">بازگشت به صفحه اصلی ←</a>
+    </header>
+
+    <main>
+        <div class="auth-wrapper">
+
+            <div class="card">
+
+                <div class="icon">⌕</div>
+
+                <h1>ورود به حساب</h1>
+
+                <p class="description">
+                    شماره موبایل خود را وارد کنید تا کد تأیید برای شما ارسال شود.
+                </p>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <label for="phone">شماره موبایل</label>
+
+                    <input
+                        id="phone"
+                        class="input"
+                        type="tel"
+                        placeholder="09123456789"
+                        maxlength="11"
+                        name="phone"
+                    >
+
+                    <div class="hint">
+                        شماره موبایل باید با 09 شروع شود.
+                    </div>
+
+                    <button class="button" type="submit">
+                        دریافت کد تأیید
+                    </button>
+
+                </form>
+
+                <div class="secure">
+                    <span class="secure-dot"></span>
+                    اطلاعات شما امن و محرمانه است
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        © ۱۴۰۵ منفرد ترید
+    </footer>
+
+</div>
+
+</body>
+</html>

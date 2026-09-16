@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تکمیل پروفایل | منفرد ترید</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --pink: #FF3D8B;
+            --pink-dark: #e92d78;
+            --green: #16A34A;
+            --bg: #F9FAFB;
+            --border: #E5E7EB;
+            --text: #000;
+            --muted: #737373;
+            --white: #fff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Vazirmatn", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+        }
+
+        .page {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            height: 76px;
+            padding: 0 6%;
+            display: flex;
+            align-items: center;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #000;
+            font-weight: 800;
+        }
+
+        .logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 13px;
+            display: grid;
+            place-items: center;
+            color: white;
+            background: linear-gradient(135deg, #FF3D8B, #FF8A3D);
+        }
+
+        main {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px 70px;
+        }
+
+        .wrapper {
+            width: 100%;
+            max-width: 440px;
+        }
+
+        .card {
+            background: white;
+            border: 1px solid var(--border);
+            border-radius: 28px;
+            padding: 34px;
+        }
+
+        .profile-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 22px;
+            display: grid;
+            place-items: center;
+            margin-bottom: 24px;
+            color: white;
+            font-size: 28px;
+            background: linear-gradient(135deg, #FF3D8B, #FF8A3D);
+        }
+
+        h1 {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 8px;
+        }
+
+        .description {
+            color: var(--muted);
+            font-size: 13px;
+            line-height: 2;
+            margin-bottom: 28px;
+        }
+
+        .field {
+            margin-bottom: 17px;
+        }
+
+        label {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .input {
+            width: 100%;
+            height: 57px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: var(--bg);
+            padding: 0 17px;
+            font-family: inherit;
+            font-size: 14px;
+            outline: none;
+            transition: .2s;
+        }
+
+        .input:focus {
+            border-color: var(--pink);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(255, 61, 139, .08);
+        }
+
+        .button {
+            width: 100%;
+            height: 58px;
+            border: none;
+            border-radius: 16px;
+            background: var(--pink);
+            color: white;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 700;
+            margin-top: 9px;
+            cursor: pointer;
+            transition: .2s;
+        }
+
+        .button:hover {
+            background: var(--pink-dark);
+            transform: translateY(-1px);
+        }
+
+        .privacy {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            color: #999;
+            font-size: 11px;
+            margin-top: 20px;
+        }
+
+        .dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--green);
+        }
+
+        footer {
+            text-align: center;
+            color: #999;
+            font-size: 11px;
+            padding: 20px;
+        }
+
+        @media (max-width: 500px) {
+
+            header {
+                padding: 0 20px;
+            }
+
+            main {
+                padding: 25px 16px 50px;
+                align-items: flex-start;
+            }
+
+            .card {
+                padding: 27px 20px;
+                border-radius: 24px;
+            }
+
+            h1 {
+                font-size: 23px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="page">
+
+    <header>
+        <a href="#" class="brand">
+            <span class="logo">م</span>
+            <span>منفرد ترید</span>
+        </a>
+    </header>
+
+    <main>
+
+        <div class="wrapper">
+
+            <div class="card">
+
+                <div class="profile-icon">م</div>
+
+                <h1>پروفایل شما</h1>
+
+                <p class="description">
+                    فقط یک قدم دیگر باقی مانده.
+                    نام و نام خانوادگی خود را وارد کنید تا حساب شما ساخته شود.
+                </p>
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="field">
+                        <label for="first_name">
+                            نام
+                        </label>
+
+                        <input
+                            id="first_name"
+                            name="first_name"
+                            class="input"
+                            type="text"
+                            name="first_name"
+                            placeholder="مثلاً امیررضا"
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label for="last_name">
+                            نام خانوادگی
+                        </label>
+
+                        <input
+                            id="last_name"
+                            name="last_name"
+                            class="input"
+                            type="text"
+                            name="last_name"
+                            placeholder="مثلاً نظری"
+                        >
+                    </div>
+
+                    <button class="button" type="submit">
+                        ساخت حساب و ادامه
+                    </button>
+
+                </form>
+
+                <div class="privacy">
+                    <span class="dot"></span>
+                    اطلاعات شما فقط برای حساب کاربری استفاده می‌شود
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer>
+        © ۱۴۰۵ منفرد ترید
+    </footer>
+
+</div>
+
+</body>
+</html>
