@@ -14,7 +14,7 @@ def phone_login(request):
     if request.user.is_authenticated:
         return redirect("home")
 
-    if request.method == "POST":
+    elif request.method == "POST":
 
         form = PhoneForm(request.POST)
 

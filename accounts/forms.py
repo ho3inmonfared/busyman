@@ -1,4 +1,7 @@
 from django import forms
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
+from . import models
 
 
 class PhoneForm(forms.Form):
@@ -51,3 +54,30 @@ class ProfileForm(forms.Form):
     last_name = forms.CharField(
         max_length=255
     )
+    
+
+
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = models.CustomUser
+        fields = (
+            "first_name",
+            "last_name",
+            "phone",
+            "password1",
+            "password2",
+        )
+
+
+class CustomUserChangeForm(UserChangeForm):
+
+    class Meta:
+        model = models.CustomUser
+        fields = (
+            "first_name",
+            "last_name",
+            "phone",
+            "password",
+        )
